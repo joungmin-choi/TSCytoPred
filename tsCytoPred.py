@@ -104,7 +104,7 @@ def build_test_time_series_dataset(raw_x, seq_length = 3) :
 
 
 train_x, train_y, train_idx = build_train_time_series_dataset(train_rna_seq, train_cytokine, num_seq_length)
-test_x, test_idx = build_time_series_dataset(test_rna_seq, test_cytokine, num_seq_length)
+test_x, test_idx = build_test_time_series_dataset(test_rna_seq, num_seq_length)
 
 train_x = torch.FloatTensor(train_x)
 train_y = torch.FloatTensor(train_y)
@@ -146,7 +146,7 @@ class TimeSeriesRegressNet(nn.Module) :
         return pred
 
 
-learning_rate = 1e-4
+learning_rate = 1e-5
 model = TimeSeriesRegressNet().to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr = learning_rate)
 mae_loss = nn.L1Loss()
