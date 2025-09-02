@@ -1,4 +1,4 @@
-# TSCytoPred: Inferring time-series cytokine expression for transcriptomics data based on deep learning
+# TSCytoPred: A Deep Learning Framework for Inferring Cytokine Expression Trajectories from Irregular Longitudinal Gene Expression Data
 
 Cytokines play a crucial role in immune system regulation, mediating responses from pathogen defense to tissue-damaging inflammation. Excessive cytokine production is implicated in severe conditions such as cancer progression, hemophagocytic lymphohistiocytosis, and severe cases of Coronavirus disease-19 (COVID-19). Studies have shown that cytokine expression profiles serve as biomarkers for disease severity and mortality prediction, with machine learning (ML) methods increasingly employed for predictive analysis. To improve patient outcome predictions, treatment adaptation, and survival rates, longitudinal analysis of cytokine profiles is essential. Time-series cytokine profiling has been linked to tumor response, overall survival in various cancers, and acute encephalopathy. Similarly, COVID-19 severity and patient outcomes correlate with cytokine expression dynamics over time. However, challenges remain due to the limited availability of time-series cytokine data, restricting broader experimental applications and robust predictive modeling. Recent advancements indicate that cytokine expression can be computationally inferred using gene expression data and transcription factor interactions. Inferring cytokine levels from existing gene expression datasets could enhance early disease detection and treatment response predictions while reducing profiling costs. 
 
@@ -7,10 +7,20 @@ This work proposes TSCytoPred, a deep learning-based model trained on time-serie
 ## Requirements
 * Python (>= 3.6)
 * Pytorch (>= v1.6.0)
-* Other python packages : numpy, pandas, os, sys, scikit-learn
+* Other python packages : numpy (>=1.19.1), pandas (>=1.1.1), os, sys, datetime
 
 ## Usage
 Clone the repository or download source code files.
+
+## Installation
+To install TSCytoPred, run either:
+```
+pip install -r requirements.txt
+```
+or clone the repository and run:
+```
+pip install tscytopred
+```
 
 ## Inputs
 [Note!] All the example datasets can be found in './example/' directory.
@@ -31,13 +41,14 @@ Clone the repository or download source code files.
 * File name should be "train_cytokine_expression.csv"
 * Example : ./example/train_cytokine_expression.csv
 
-## How to run
-1. Edit the **run_TSCytoPred.sh** to make sure each variable indicate the corresponding files.
+## How to run (Example)
+1. Clone the respository, move to the cloned directory, and edit the **run_TSCytoPred.sh** to make sure each variable indicate the corresponding files.
 2. Run the below command :
 ```
 chmod +x run_TSCytoPred.sh
 ./run_TSCytoPred.sh
 ```
+If you clone the directory and run the above command directly, you will get the result for the example dataset.
 
 3. All the results will be saved in the newly created **results** directory.
    * pred_cytokine.csv : inferred cytokine expression values
